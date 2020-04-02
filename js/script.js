@@ -2,28 +2,11 @@ angular.module('app',[])
 
     .controller('ctrl', ['$scope', function($scope) {
 
-
-        vff.onController('players', e => {
-            // console.log(e.data);
-            let players = document.querySelector('.all');
-            players.innerHTML = '';
-            e.data.forEach(player => {
-                let playerEl = document.createElement('div');
-                playerEl.innerText = player.name;
-                players.appendChild(playerEl);
-            });
-        });
-        vff.onController('player', e => {
-            let player = vff.data().players.find(p => p.name === e.data);
-            document.querySelector('.selected').innerText = JSON.stringify(player);
-        });
-        vff.onController('columns', e => {
-            // console.log(e.data);
-        });
-
         $scope.table = [];
         $scope.columns =[];
         $scope.rows = [];
+
+        $scope.vff = vff;
 
         vff.onController('table', e => {
             // console.log(e.data);

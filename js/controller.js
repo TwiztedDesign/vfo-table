@@ -2,8 +2,6 @@ angular.module('app',[])
 
     .controller('ctrl', ['$scope', function($scope) {
 
-
-
         $scope.tableData = {
             columns : ["Col1","Col2", "Col3"],
             rows : [["", "", ""]]
