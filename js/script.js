@@ -29,6 +29,14 @@ angular.module('app',[])
 
         });
 
+        vff.onController('style', e => {
+            let d = e.data;
+            for (let [key, value] of Object.entries(d)) {
+                let prop = '--' + key.replace(/([A-Z])/g, (g) => `-${g[0].toLowerCase()}`);
+                document.documentElement.style.setProperty(prop, value);
+            }
+        });
+
 
         function objToArr(obj){
             let arr = [];

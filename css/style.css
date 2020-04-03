@@ -1,58 +1,126 @@
 /*table, th, td {*/
     /*border: 1px solid black;*/
 /*}*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --background-color:#000;
+    --header-background-color:#ddd;
+    --header-text-color:#000;
+    --header-spacing:5px;
+    --header-spacing-color:#000;
+    --header-height:50px;
+    --header-cell-padding:1vw;
+    --row-background-color:#aaa;
+    --row-background-color2:#bbb;
+    --row-height:30px;
+    --row-spacing:2px;
+    --row-cell-padding:1vw;
+    --row-spacing-color:#000;
+    --row-text-color:#222;
+    --row-text-color2:#555;
+    --column-spacing:2px;
+    --column-spacing-color:#000;
+}
+
 body{
-    background-color: white;
+    overflow: hidden;
+    background-color: var(--background-color);
+    font-family: 'Roboto';
+    display: flex;
+    height: 100vh;
 }
 
-
-table.redTable {
-    border: 2px solid #A40808;
-    background-color: #EEE7DB;
+.table{
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    text-align: center;
-    border-collapse: collapse;
-}
-table.redTable td, table.redTable th {
-    border: 1px solid #AAAAAA;
-    padding: 3px 2px;
-}
-table.redTable tbody td {
-    font-size: 13px;
-}
-table.redTable tr:nth-child(even) {
-    background: #F5C8BF;
-}
-table.redTable thead {
-    background: #A40808;
-}
-table.redTable thead th {
-    font-size: 19px;
-    font-weight: bold;
-    color: #FFFFFF;
-    text-align: center;
-    border-left: 2px solid #A40808;
-}
-table.redTable thead th:first-child {
-    border-left: none;
+    margin-top: 56.25vw;
+    overflow: hidden;;
 }
 
-table.redTable tfoot {
-    font-size: 13px;
-    font-weight: bold;
-    color: #FFFFFF;
-    background: #A40808;
+.table .table-header{
+    display: flex;
+    flex-direction: row;
+    background-color: var(--header-background-color);
+    border-bottom: var(--header-spacing) solid var(--header-spacing-color);
+    height: var(--header-height);
+    flex:0 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
+    z-index: 1;
 }
-table.redTable tfoot td {
-    font-size: 13px;
+
+.table .table-header .table-header-cell{
+    display: flex;
+    align-items: center;
+    flex: 1 1 auto;
+    color:var(--header-text-color);
+    height: 100%;
+    position: relative;
 }
-table.redTable tfoot .links {
-    text-align: right;
+
+.table .table-header .table-header-cell label {
+    width: 100%;
+    text-overflow: ellipsis;
+    position: absolute;
+    overflow: hidden;
+    padding: 0 var(--row-cell-padding);
+    white-space: pre;
+    font-weight: 700;
+
 }
-table.redTable tfoot .links a{
-    display: inline-block;
-    background: #FFFFFF;
-    color: #A40808;
-    padding: 2px 8px;
-    border-radius: 5px;
+
+.table .table-header .table-header-cell:not(:last-child){
+    border-right: var(--column-spacing) solid var(--column-spacing-color);
+}
+
+.table .table-body{
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table .table-body .table-body-row{
+    display: flex;
+    flex-direction: row;
+    background: var(--row-background-color);
+    border-bottom: var(--row-spacing) solid var(--row-spacing-color);
+    height: var(--row-height);
+    flex:0 0;
+}
+
+.table .table-body .table-body-row:nth-child(even){
+    background: var(--row-background-color2);
+}
+
+.table .table-body .table-body-row:nth-child(even) .table-body-row-cell{
+    color:var(--row-text-color2);
+}
+
+.table .table-body .table-body-row .table-body-row-cell{
+    display: flex;
+    align-items: center;
+    flex: 1 1 auto;
+    color:var(--row-text-color);
+    height: 100%;
+    position: relative;
+}
+
+.table .table-body .table-body-row .table-body-row-cell:not(:last-child){
+    border-right: var(--column-spacing) solid var(--column-spacing-color);
+}
+
+.table .table-body .table-body-row .table-body-row-cell label {
+    width: 100%;
+    text-overflow: ellipsis;
+    position: absolute;
+    overflow: hidden;
+    padding: 0 var(--row-cell-padding);
+    white-space: pre;
 }

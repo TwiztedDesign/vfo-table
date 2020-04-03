@@ -16,17 +16,11 @@
 </head>
 
 <body vff-controller ng-app="app" ng-controller="ctrl">
-
-
     <vff-tabs default="table">
         <vff-tab for="table">Table</vff-tab>
         <vff-tab for="style">Style</vff-tab>
     </vff-tabs>
-
     <div id="table" class="ctrl-container">
-        <div class="ctrl-container-row">
-            <input type="color" vff-data="style.backgroundColor"/>
-        </div>
         <div class="ctrl-container-row">
             <table>
                 <thead>
@@ -60,8 +54,22 @@
     </div>
     <div id="style" class="ctrl-container">
         <div class="ctrl-container-row">
+            <label>Background Color</label>
             <input type="color" vff-data="style.backgroundColor"/>
         </div>
+        <div class="ctrl-container-row">
+            <label>Header BG Color</label>
+            <input type="color" vff-data="style.headerBackgroundColor"/>
+            <label>Header Text Color</label>
+            <input type="color" vff-data="style.headerTextColor"/>
+        </div>
+        <div class="ctrl-container-row">
+            <label>Header Spacing</label>
+            <input type="range" min="0" max="10" step="1" vff-data="style.headerSpacing"/>
+            <label>Header Spacing Color</label>
+            <input type="color" vff-data="style.headerSpacingColor"/>
+        </div>
+
     </div>
 </body>
 </html>

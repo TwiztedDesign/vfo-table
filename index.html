@@ -9,27 +9,27 @@
     <script src="https://unpkg.com/vff@1"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="js/script.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 
     <title>Videoflow Overlay</title>
 </head>
 
-<body ng-app="app" ng-controller="ctrl" ng-style="{'background-color':vff.data().style.backgroundColor}">
-
-    <table class="redTable">
-        <thead>
-        <tr>
-            <th ng-repeat="col in columns track by $index">{{col}}</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="row in rows track by $index">
-            <td ng-repeat="(key, value) in row track by $index">
-                {{value}}
-            </td>
-        </tr>
-        </tbody>
-    </table>
+<body ng-app="app" ng-controller="ctrl">
+    <div class="table">
+        <div class="table-header">
+            <div class="table-header-cell" ng-repeat="col in columns track by $index">
+                <label>{{col}}</label>
+            </div>
+        </div>
+        <div class="table-body">
+            <div class="table-body-row" ng-repeat="row in rows track by $index">
+                <div class="table-body-row-cell" ng-repeat="(key, value) in row track by $index">
+                    <label>{{value}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
