@@ -95,7 +95,7 @@ body{
     background: var(--row-background-color);
     border-bottom: var(--row-spacing) solid var(--row-spacing-color);
     height: var(--row-height);
-    flex:1 0 var(--row-height);
+    flex:0 0 var(--row-height);
 }
 
 .table .table-body .table-body-row:nth-child(even){
