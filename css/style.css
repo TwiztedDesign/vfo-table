@@ -149,7 +149,7 @@ body{
     background: rgba(0,0,0,0.5);
 }
 
-.mobile::-webkit-scrollbar {
+.vff-mobile::-webkit-scrollbar {
     all:unset;
 }
 

@@ -5,7 +5,7 @@ angular.module('app',[])
         $scope.table = [];
         $scope.columns =[];
         $scope.rows = [];
-        $scope.isMobile = vff.isMobile;
+
         $scope.vff = vff;
 
         vff.onController('table', e => {

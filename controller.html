@@ -29,12 +29,13 @@
                         <th ng-repeat="col in tableData.columns track by $index" style="text-align:center; background:transparent;">
                             <a class="table-action delete-row" ng-click="removeColumn($index)"><i class="fa fa-times" aria-hidden="true"></i></a>
                         </th>
+                        <th style="width:25px;background:transparent;"></th>
                     </tr>
                     <tr>
                         <th ng-repeat="col in tableData.columns track by $index">
                             <input type="text" vff-data="table.columns[{{$index}}]" value="{{col}}"/>
                         </th>
-                        <th style="width:25px;text-align:center; background:transparent;"><a class="table-action add-column" ng-click="addColumn()"><i class="fa fa-plus" aria-hidden="true"></i></a></th>
+                        <th style="text-align:center; background:transparent;"><a class="table-action add-column" ng-click="addColumn()"><i class="fa fa-plus" aria-hidden="true"></i></a></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -56,7 +57,7 @@
     <div id="style" class="ctrl-container">
         <div class="ctrl-container-row">
             <label>Background Color</label>
-            <input type="color" vff-style="backgroundColor"/>
+            <input type="color" value="#ffffff" vff-style="backgroundColor"/>
         </div>
         <div class="ctrl-container-row">
             <label>Text Size</label>
@@ -65,45 +66,45 @@
         <h2>Header</h2>
         <div class="ctrl-container-row">
             <label>BG Color</label>
-            <input type="color" vff-style="headerBackgroundColor"/>
+            <input type="color" value="#354A5F" vff-style="headerBackgroundColor"/>
             <label>Text Color</label>
-            <input type="color" vff-style="headerTextColor"/>
+            <input type="color" value="#ffffff" vff-style="headerTextColor"/>
         </div>
         <div class="ctrl-container-row">
             <label>Bottom Spacing</label>
-            <input type="range" min="0" max="10" step="1" vff-style="headerSpacing" vff-suffix="px"/>
+            <input type="range" min="0" max="10" step="1" value="0" vff-style="headerSpacing" vff-suffix="px"/>
             <label>Bottom Spacing Color</label>
             <input type="color" vff-style="headerSpacingColor"/>
         </div>
         <div class="ctrl-container-row">
             <label>Bottom Shadow Opacity</label>
-            <input type="range" min="0" max="1" step="0.01" vff-style="headerShadowOpacity"/>
+            <input type="range" min="0" max="1" step="0.01" value="0.5" vff-style="headerShadowOpacity"/>
         </div>
         <h2>Rows</h2>
         <div class="ctrl-container-row">
             <label>BG Color A</label>
-            <input type="color" vff-style="rowBackgroundColor"/>
+            <input type="color" value="#ffffff" vff-style="rowBackgroundColor"/>
             <label>BG Color B</label>
-            <input type="color" vff-style="rowBackgroundColor2"/>
+            <input type="color" value="#fafafa" vff-style="rowBackgroundColor2"/>
         </div>
         <div class="ctrl-container-row">
             <label>Text Color A</label>
-            <input type="color" vff-style="rowTextColor"/>
+            <input type="color"  vff-style="rowTextColor"/>
             <label>Text Color B</label>
             <input type="color" vff-style="rowTextColor2"/>
         </div>
         <h2>Cells Spacing</h2>
         <div class="ctrl-container-row">
             <label>Vertical Spacing</label>
-            <input type="range" min="0" max="10" step="1" vff-style="columnSpacing" vff-suffix="px"/>
+            <input type="range" min="0" max="10" step="1" value="0" vff-style="columnSpacing" vff-suffix="px"/>
             <label>Vertical Spacing Color</label>
             <input type="color" vff-style="columnSpacingColor"/>
         </div>
         <div class="ctrl-container-row">
             <label>Horizontal Spacing</label>
-            <input type="range" min="0" max="10" step="1" vff-style="rowSpacing" vff-suffix="px"/>
+            <input type="range" min="0" max="10" step="1" value="1" vff-style="rowSpacing" vff-suffix="px"/>
             <label>Vertical Spacing Color</label>
-            <input type="color" vff-style="rowSpacingColor"/>
+            <input type="color" value="#eeeeee" vff-style="rowSpacingColor"/>
         </div>
     </div>
 </body>
