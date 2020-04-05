@@ -5,7 +5,6 @@ angular.module('app',[])
         $scope.table = [];
         $scope.columns =[];
         $scope.rows = [];
-
         $scope.vff = vff;
 
         vff.onController('table', e => {

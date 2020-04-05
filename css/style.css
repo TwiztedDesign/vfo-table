@@ -51,7 +51,7 @@ body{
     background-color: var(--header-background-color);
     border-bottom: var(--header-spacing) solid var(--header-spacing-color);
     height: var(--header-height);
-    flex:0 0;
+    /*flex:0 0;*/
     box-shadow: 0 0 10px rgba(0, 0, 0, var(--header-shadow-opacity));
     z-index: 1;
 }
@@ -95,7 +95,7 @@ body{
     background: var(--row-background-color);
     border-bottom: var(--row-spacing) solid var(--row-spacing-color);
     height: var(--row-height);
-    flex:0 0;
+    flex:1 0 var(--row-height);
 }
 
 .table .table-body .table-body-row:nth-child(even){
