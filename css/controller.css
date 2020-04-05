@@ -1,3 +1,20 @@
 button{
     width: 100%;
 }
+
+.table-action{
+    color:#fff;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+    width: 100%;
+}
+
+.table-action:hover{
+    color:#ff0036;
+}
+
+.table-action span{
+    margin-left: 5px;
+}

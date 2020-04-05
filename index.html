@@ -15,7 +15,7 @@
     <title>Videoflow Overlay</title>
 </head>
 
-<body ng-app="app" ng-controller="ctrl">
+<body ng-app="app" ng-controller="ctrl" ng-class="{mobile:isMobile}">
     <div class="table">
         <div class="table-header">
             <div class="table-header-cell" ng-repeat="col in columns track by $index">

@@ -5,16 +5,19 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    user-select: none;
 }
 
 :root{
     --background-color:#000;
+    --font-size:16px;
     --header-background-color:#ddd;
     --header-text-color:#000;
     --header-spacing:5px;
     --header-spacing-color:#000;
     --header-height:50px;
     --header-cell-padding:1vw;
+    --header-shadow-opacity:0;
     --row-background-color:#aaa;
     --row-background-color2:#bbb;
     --row-height:30px;
@@ -29,7 +32,6 @@
 
 body{
     overflow: hidden;
-    background-color: var(--background-color);
     font-family: 'Roboto';
     display: flex;
     height: 100vh;
@@ -39,8 +41,8 @@ body{
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin-top: 56.25vw;
-    overflow: hidden;;
+    height: 100%;
+    font-size: var(--font-size);
 }
 
 .table .table-header{
@@ -50,7 +52,7 @@ body{
     border-bottom: var(--header-spacing) solid var(--header-spacing-color);
     height: var(--header-height);
     flex:0 0;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0 0 10px rgba(0, 0, 0, var(--header-shadow-opacity));
     z-index: 1;
 }
 
@@ -71,7 +73,6 @@ body{
     padding: 0 var(--row-cell-padding);
     white-space: pre;
     font-weight: 700;
-
 }
 
 .table .table-header .table-header-cell:not(:last-child){
@@ -82,8 +83,10 @@ body{
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: overlay;
     -webkit-overflow-scrolling: touch;
+    background-color: var(--background-color);
+    height:100%;
 }
 
 .table .table-body .table-body-row{
@@ -123,4 +126,57 @@ body{
     overflow: hidden;
     padding: 0 var(--row-cell-padding);
     white-space: pre;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    background: transparent;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    display: none;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.35);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0,0,0,0.5);
+}
+
+.mobile::-webkit-scrollbar {
+    all:unset;
+}
+
+@media (orientation: landscape) {
+    .table{
+        padding-right: 60vw;
+    }
+
+    .table .table-header .table-header-cell label{
+        font-size: 0.8em;
+    }
+
+    .table .table-body .table-body-row .table-body-row-cell label{
+        font-size: 0.8em;
+    }
+}
+
+@media (orientation: portrait) {
+    .table {
+        padding-top: 56.25%;
+    }
+
+    .table .table-header .table-header-cell label{
+        font-size: 0.8em;
+    }
+
+    .table .table-body .table-body-row .table-body-row-cell label{
+        font-size: 0.8em;
+    }
 }

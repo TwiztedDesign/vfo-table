@@ -6,6 +6,7 @@
     <!--<link rel="stylesheet" href="css/controller.css" />-->
     <link rel="stylesheet" href="https://unpkg.com/vff-controllers/dist/vff-controller/vff-controller.css"/>
     <link rel="stylesheet" href="css/controller.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" onerror="fallback('../libs/fontawesome/css/font-awesome.min.css')">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <!--<script src="http://localhost:8081/vff.js"></script>-->
     <script src="https://unpkg.com/vff@1"></script>
@@ -17,7 +18,7 @@
 
 <body vff-controller ng-app="app" ng-controller="ctrl">
     <vff-tabs default="table">
-        <vff-tab for="table">Table</vff-tab>
+        <vff-tab for="table">Data</vff-tab>
         <vff-tab for="style">Style</vff-tab>
     </vff-tabs>
     <div id="table" class="ctrl-container">
@@ -25,15 +26,15 @@
             <table>
                 <thead>
                     <tr>
-                        <th ng-repeat="col in tableData.columns track by $index">
-                            <button ng-click="removeColumn($index)"><h1>X</h1></button>
+                        <th ng-repeat="col in tableData.columns track by $index" style="text-align:center; background:transparent;">
+                            <a class="table-action delete-row" ng-click="removeColumn($index)"><i class="fa fa-times" aria-hidden="true"></i></a>
                         </th>
                     </tr>
                     <tr>
                         <th ng-repeat="col in tableData.columns track by $index">
                             <input type="text" vff-data="table.columns[{{$index}}]" value="{{col}}"/>
                         </th>
-                        <th style="width:25px;"> <button ng-click="addColumn()"><h1>+</h1></button></th>
+                        <th style="width:25px;text-align:center; background:transparent;"><a class="table-action add-column" ng-click="addColumn()"><i class="fa fa-plus" aria-hidden="true"></i></a></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -41,35 +42,69 @@
                     <td ng-repeat="col in tableData.columns track by $index">
                         <input type="text" vff-data="table.rows.{{$parent.$index}}.{{$index}}"  ng-model="row[$index]">
                     </td>
-                    <td>
-                        <button ng-click="removeRow($index)">X</button>
+                    <td style="text-align:center; background:transparent;">
+                        <a class="table-action delete-row" ng-click="removeRow($index)"><i class="fa fa-times" aria-hidden="true"></i></a>
                     </td>
                 </tr>
                 </tbody>
             </table>
         </div>
         <div class="ctrl-container-row">
-            <button ng-click="addRow()"><h1>+</h1></button>
+            <a class="table-action add-row" ng-click="addRow()"><i class="fa fa-plus" aria-hidden="true"></i><span>Add Row</span></a>
         </div>
     </div>
     <div id="style" class="ctrl-container">
         <div class="ctrl-container-row">
             <label>Background Color</label>
-            <input type="color" vff-data="style.backgroundColor"/>
+            <input type="color" vff-style="backgroundColor"/>
         </div>
         <div class="ctrl-container-row">
-            <label>Header BG Color</label>
-            <input type="color" vff-data="style.headerBackgroundColor"/>
-            <label>Header Text Color</label>
-            <input type="color" vff-data="style.headerTextColor"/>
+            <label>Text Size</label>
+            <input type="range" min="10" max="20" step="1" vff-style="fontSize" vff-suffix="px"/>
+        </div>
+        <h2>Header</h2>
+        <div class="ctrl-container-row">
+            <label>BG Color</label>
+            <input type="color" vff-style="headerBackgroundColor"/>
+            <label>Text Color</label>
+            <input type="color" vff-style="headerTextColor"/>
         </div>
         <div class="ctrl-container-row">
-            <label>Header Spacing</label>
-            <input type="range" min="0" max="10" step="1" vff-data="style.headerSpacing"/>
-            <label>Header Spacing Color</label>
-            <input type="color" vff-data="style.headerSpacingColor"/>
+            <label>Bottom Spacing</label>
+            <input type="range" min="0" max="10" step="1" vff-style="headerSpacing" vff-suffix="px"/>
+            <label>Bottom Spacing Color</label>
+            <input type="color" vff-style="headerSpacingColor"/>
         </div>
-
+        <div class="ctrl-container-row">
+            <label>Bottom Shadow Opacity</label>
+            <input type="range" min="0" max="1" step="0.01" vff-style="headerShadowOpacity"/>
+        </div>
+        <h2>Rows</h2>
+        <div class="ctrl-container-row">
+            <label>BG Color A</label>
+            <input type="color" vff-style="rowBackgroundColor"/>
+            <label>BG Color B</label>
+            <input type="color" vff-style="rowBackgroundColor2"/>
+        </div>
+        <div class="ctrl-container-row">
+            <label>Text Color A</label>
+            <input type="color" vff-style="rowTextColor"/>
+            <label>Text Color B</label>
+            <input type="color" vff-style="rowTextColor2"/>
+        </div>
+        <h2>Cells Spacing</h2>
+        <div class="ctrl-container-row">
+            <label>Vertical Spacing</label>
+            <input type="range" min="0" max="10" step="1" vff-style="columnSpacing" vff-suffix="px"/>
+            <label>Vertical Spacing Color</label>
+            <input type="color" vff-style="columnSpacingColor"/>
+        </div>
+        <div class="ctrl-container-row">
+            <label>Horizontal Spacing</label>
+            <input type="range" min="0" max="10" step="1" vff-style="rowSpacing" vff-suffix="px"/>
+            <label>Vertical Spacing Color</label>
+            <input type="color" vff-style="rowSpacingColor"/>
+        </div>
     </div>
 </body>
 </html>
